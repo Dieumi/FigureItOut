@@ -1,4 +1,4 @@
-package org.websparrow.action;
+package com.figureitout.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.Action;
@@ -11,7 +11,7 @@ import org.apache.struts2.convention.annotation.ResultPath;
 @Action(value = "register", results = {
     @Result(name = "success", location = "welcome.jsp"),
     @Result(name = "error", location = "index.jsp")})
-public class AnnotationWelcomeAction extends ActionSupport {
+public class HomeAction extends ActionSupport {
 
     private String userId, pass, msg;
 
