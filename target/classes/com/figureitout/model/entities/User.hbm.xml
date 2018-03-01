@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1 mars 2018 16:29:08 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.figureitout.model.entities.User" table="user" catalog="figureitout" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="auth" class="com.figureitout.model.entities.Auth" fetch="select">
+            <column name="AuthID" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="FirstName" />
+        </property>
+        <property name="mail" type="string">
+            <column name="Mail" />
+        </property>
+        <property name="signupDate" type="string">
+            <column name="SignupDate" />
+        </property>
+        <property name="deleted" type="java.lang.Boolean">
+            <column name="Deleted" />
+        </property>
+        <property name="role" type="string">
+            <column name="Role" length="8" not-null="true" />
+        </property>
+        <set name="sessions" table="session" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="com.figureitout.model.entities.Session" />
+        </set>
+        <set name="comments" table="comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="com.figureitout.model.entities.Comment" />
+        </set>
+        <set name="transactions" table="transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="com.figureitout.model.entities.Transaction" />
+        </set>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="com.figureitout.model.entities.Orders" />
+        </set>
+        <set name="ratings" table="rating" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="com.figureitout.model.entities.Rating" />
+        </set>
+        <set name="shoppingcarts" table="shoppingcart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="com.figureitout.model.entities.Shoppingcart" />
+        </set>
+        <set name="stockorders" table="stockorder" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="com.figureitout.model.entities.Stockorder" />
+        </set>
+        <set name="addresses" table="address" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" not-null="true" />
+            </key>
+            <one-to-many class="com.figureitout.model.entities.Address" />
+        </set>
+    </class>
+</hibernate-mapping>

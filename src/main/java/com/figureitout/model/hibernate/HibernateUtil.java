@@ -5,6 +5,8 @@
  */
 package com.figureitout.model.hibernate;
 
+import java.io.File;
+import java.net.URL;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -27,9 +29,12 @@ public class HibernateUtil {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            
+            ClassLoader cl=HibernateUtil.class.getClassLoader();
+            URL config=cl.getResource("hibernate/hibernate.cfg.xml");
+              System.out.println("fdp");
+             System.out.println("test" +config);
             SessionFactory sessionFactory = new Configuration()
-                    .configure("/main/resources/hiberbate/hibernate.cfg.xml").buildSessionFactory();
+                    .configure(config).buildSessionFactory();
             return sessionFactory;
 
         } catch (Throwable ex) {
