@@ -16,6 +16,6 @@
      
       <jsp:doBody/>
 
-           <%@ include file="footer.jsp" %>  
+      <%@ include file="footer.jsp" %>  
       <jsp:invoke fragment="footer"/>
 

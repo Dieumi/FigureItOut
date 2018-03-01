@@ -10,6 +10,8 @@
     <meta name="author" content="">
     <!-- Bootstrap styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet"/>
+         <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet"/>
     <!-- Customize styles -->
     <link href="style.css" rel="stylesheet"/>
     <!-- font awesome styles -->
